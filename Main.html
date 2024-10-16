@@ -216,28 +216,40 @@
   </div>
 </div>
 
-<section class="feedback-form my-4">
-  <h3>Submit Feedback</h3>
-  <form>
+<div class="container mt-5">
+  <h2>Feedback Form</h2>
+  <!-- Feedback Form -->
+  <form id="feedbackForm">
     <div class="form-group">
-      <label for="feedback">Your feedback:</label>
-      <input type="text" id="feedback" class="form-control" placeholder="Your feedback" required>
-      <textarea id="comments" class="form-control" rows="4" placeholder="Enter your comments here..." required></textarea>
+      <label for="feedback">Feedback</label>
+      <input type="text" class="form-control" id="feedback" placeholder="Enter your feedback">
     </div>
     <div class="form-group">
-      <label for="comments">Comments:</label>
-      <textarea id="comments" class="form-control" rows="4" placeholder="Enter your comments here..."></textarea>
-    </div>
-    <div class="form-group">
-      <label for="anonimity">Anonymously?</label>
-      <select id="anonimity" class="form-control">
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-      </select>
+      <label for="comments">Comments</label>
+      <textarea class="form-control" id="comments" rows="4" placeholder="Enter your comments"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-</section>
+</div>
+
+<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="feedbackModalLabel">Thank You!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Your feedback has been submitted successfully.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="accordion" id="faqAccordion">
   <div class="card">
@@ -292,6 +304,19 @@
     if (!feedback || !comments) {
       e.preventDefault();
       alert('Please provide feedback and comments.');
+    }
+  });
+
+  document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent form submission
+
+    const feedback = document.getElementById('feedback').value.trim();
+    const comments = document.getElementById('comments').value.trim();
+
+    if (!feedback || !comments) {
+      alert('Please provide both feedback and comments.');
+    } else {
+      $('#feedbackModal').modal('show'); // Show the Bootstrap modal
     }
   });
 </script>
