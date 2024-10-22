@@ -11,52 +11,70 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<header class="bg-primary text-white text-center py-4">
-  <h1>Welcome to MaxMah Studios</h1>
-  <blockquote class="blockquote">
-    <p>"We create, we learn, we try"</p>
-    <footer class="blockquote-footer">
-      <small>—Makhambet</small>
-    </footer>
+  <header class="bg-primary text-white text-center py-4">
+    <h1>Welcome to MaxMah Studios</h1>
+    <blockquote class="blockquote">
+      <p>"We create, we learn, we try"</p>
+      <footer class="blockquote-footer">
+        <small>—Makhambet</small>
+      </footer>
+    </blockquote>
 
-  </blockquote>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">MaxMah Studios</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="https://mahamba.itch.io/">Itch.io</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#games">Games</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#team">Team</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">MaxMah Studios</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="https://mahamba.itch.io/">Itch.io</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#games">Games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#team">Team</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-  <!--button that shows current time-->
-  <button id="showTimeBtn" class="btn btn-secondary my-2">Show Current Time</button>
+    <!--button that shows current time-->
+    <button id="showTimeBtn" class="btn btn-secondary my-2">Show Current Time</button>
 
-  <!--button that changes background color-->
-  <button onclick="changeBackgroundColor()">Change Background Color</button>
+    <!--button that changes background color-->
+    <button onclick="changeBackgroundColor()">Change Background Color</button>
 
-  <script>
-    document.getElementById('showTimeBtn').addEventListener('click', function() {
-      document.getElementById('currentDateTime').innerHTML = new Date().toLocaleString();
-    });
+    <script>
+      document.getElementById('showTimeBtn').addEventListener('click', function() {
+        document.getElementById('currentDateTime').innerHTML = new Date().toLocaleString();
+      });
 
-    function changeBackgroundColor() {
-      document.body.style.backgroundColor = document.body.style.backgroundColor === 'lightblue' ? 'white' : 'lightblue';
-    }
-  </script>
+      function changeBackgroundColor() {
+        document.body.style.backgroundColor = document.body.style.backgroundColor === 'lightblue' ? 'white' : 'lightblue';
+      }
 
-</header>
+      const navMenu = document.getElementById('navMenu');
+      const menuItems = navMenu.querySelectorAll('.nav-item');
+
+      navMenu.addEventListener('keydown', function(event) {
+        const focusedElement = document.activeElement;
+        const currentIndex = Array.from(menuItems).indexOf(focusedElement);
+
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown')
+        {
+          let nextIndex = (currentIndex + 1) % menuItems.length;
+          menuItems[nextIndex].focus();
+        }
+        else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp')
+        {
+          let prevIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
+          menuItems[prevIndex].focus();
+        }
+      });
+    </script>
+  </header>
 
 <main class="container-lg my-4">
   <section class="intro text-center">
@@ -147,158 +165,152 @@
     </div>
   </div>.
 
+  <section class="carousel-container container-lg my-5">
+    <div id="gameCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#gameCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#gameCarousel" data-slide-to="1"></li>
+        <li data-target="#gameCarousel" data-slide-to="2"></li>
+      </ol>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://img.itch.zone/aW1nLzE0MTA4Njc2LnBuZw==/original/QoGsrL.png" class="d-block w-100" alt="Image 1">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Bugs of Life</h5>
+            <p>November 2023</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://img.itch.zone/aW1nLzE1MDMwNzYwLnBuZw==/original/n6hI6M.png" class="d-block w-100" alt="Image 2">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Romance Rows</h5>
+            <p>February 2024</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://img.itch.zone/aW1nLzE0NTUxNzE4LnBuZw==/original/OuI%2B1A.png" class="d-block w-100" alt="Image 3">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Christmas Deer</h5>
+            <p>December 2023</p>
+          </div>
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#gameCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#gameCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>
+
+  <h3>Inpired by:</h3>
+  <div class="card-deck">
+    <div class="card">
+      <a href = "https://www.arkane-studios.com/en" target="_blank">
+        <img src="https://images.ctfassets.net/rporu91m20dc/2H336ATE6dOtzAmv6iM2cu/2315d64b621241319fded6673ad82178/Arkane2024_DesktopWebsiteBanner_1920x1080-01.jpg" class="img-fluid" alt="Responsive image">
+      </a>
+      <div class="card-body">
+      </div>
+    </div>
+    <div class="card">
+      <a href = "https://www.blizzard.com/en-us/">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblz-contentstack-images.akamaized.net%2Fv3%2Fassets%2Fblta8f9a8e092360c6c%2Fbltbe1a42777abcc0da%2F620d1898a38b0106946f17d2%2Fthumbnail-home.jpg&f=1&nofb=1&ipt=b89af9a064844fa12e173d798d1df20e9b18c10a95237de2da398b163144aa31&ipo=images" class="img-fluid" alt="Responsive image">
+      </a>
+      <div class="card-body">
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h2>Feedback Form</h2>
+    <form id="feedbackForm">
+      <div class="form-group">
+        <label for="feedback">Feedback</label>
+        <input type="text" class="form-control" id="feedback" placeholder="Enter your feedback">
+      </div>
+      <div class="form-group">
+        <label for="comments">Comments</label>
+        <textarea class="form-control" id="comments" rows="4" placeholder="Enter your comments"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="button" id="resetBtn" class="btn btn-secondary ml-2">Reset Form</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const feedback = document.getElementById('feedback').value.trim();
+      const comments = document.getElementById('comments').value.trim();
+
+      if (!feedback || !comments) {
+        alert('Please provide both feedback and comments.');
+      } else {
+        $('#feedbackModal').modal('show');
+      }
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', function() {
+      document.querySelectorAll('input, textarea').forEach(input => input.value = '');
+    });
+  </script>
+
+  <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="feedbackModalLabel">Thank You!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Your feedback has been submitted successfully.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="faqAccordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            What is MaxMah Studios?
+          </button>
+        </h2>
+      </div>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+        <div class="card-body">
+          MaxMah Studios is a game development team founded in September 2023...
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            What games do you develop?
+          </button>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+        <div class="card-body">
+          We have developed games such as Bugs of Life, Romance Rows, and more...
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
-
-<section class="carousel-container container-lg my-5">
-  <div id="gameCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#gameCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#gameCarousel" data-slide-to="1"></li>
-      <li data-target="#gameCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Carousel_Items -->
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://img.itch.zone/aW1nLzE0MTA4Njc2LnBuZw==/original/QoGsrL.png" class="d-block w-100" alt="Image 1">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Bugs of Life</h5>
-          <p>November 2023</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://img.itch.zone/aW1nLzE1MDMwNzYwLnBuZw==/original/n6hI6M.png" class="d-block w-100" alt="Image 2">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Romance Rows</h5>
-          <p>February 2024</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://img.itch.zone/aW1nLzE0NTUxNzE4LnBuZw==/original/OuI%2B1A.png" class="d-block w-100" alt="Image 3">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Christmas Deer</h5>
-          <p>December 2023</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Controls -->
-    <a class="carousel-control-prev" href="#gameCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#gameCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</section>
-
-<h3>Inpired by:</h3>
-<div class="card-deck">
-  <div class="card">
-    <a href = "https://www.arkane-studios.com/en" target="_blank">
-      <img src="https://images.ctfassets.net/rporu91m20dc/2H336ATE6dOtzAmv6iM2cu/2315d64b621241319fded6673ad82178/Arkane2024_DesktopWebsiteBanner_1920x1080-01.jpg" class="img-fluid" alt="Responsive image">
-    </a>
-    <div class="card-body">
-    </div>
-  </div>
-  <div class="card">
-    <a href = "https://www.blizzard.com/en-us/">
-      <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblz-contentstack-images.akamaized.net%2Fv3%2Fassets%2Fblta8f9a8e092360c6c%2Fbltbe1a42777abcc0da%2F620d1898a38b0106946f17d2%2Fthumbnail-home.jpg&f=1&nofb=1&ipt=b89af9a064844fa12e173d798d1df20e9b18c10a95237de2da398b163144aa31&ipo=images" class="img-fluid" alt="Responsive image">
-    </a>
-    <div class="card-body">
-    </div>
-  </div>
-</div>
-
-<div class="container mt-5">
-  <h2>Feedback Form</h2>
-  <form id="feedbackForm">
-    <div class="form-group">
-      <label for="feedback">Feedback</label>
-      <input type="text" class="form-control" id="feedback" placeholder="Enter your feedback">
-    </div>
-    <div class="form-group">
-      <label for="comments">Comments</label>
-      <textarea class="form-control" id="comments" rows="4" placeholder="Enter your comments"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <button type="button" id="resetBtn" class="btn btn-secondary ml-2">Reset Form</button>
-  </form>
-</div>
-
-<script>
-  // Feedback form validation
-  document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const feedback = document.getElementById('feedback').value.trim();
-    const comments = document.getElementById('comments').value.trim();
-
-    if (!feedback || !comments) {
-      alert('Please provide both feedback and comments.');
-    } else {
-      $('#feedbackModal').modal('show');
-    }
-  });
-
-  // Reset form button functionality
-  document.getElementById('resetBtn').addEventListener('click', function() {
-    document.querySelectorAll('input, textarea').forEach(input => input.value = '');
-  });
-</script>
-
-<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="feedbackModalLabel">Thank You!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Your feedback has been submitted successfully.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="accordion" id="faqAccordion">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          What is MaxMah Studios?
-        </button>
-      </h2>
-    </div>
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
-      <div class="card-body">
-        MaxMah Studios is a game development team founded in September 2023...
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          What games do you develop?
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
-      <div class="card-body">
-        We have developed games such as Bugs of Life, Romance Rows, and more...
-      </div>
-    </div>
-  </div>
-</div>
 
 <footer class="bg-dark text-white text-center py-3">
   <div class="container">
