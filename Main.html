@@ -130,28 +130,22 @@
     </dl>
   </section>
 
-  <p>Experiment</p>
+  <p>Test</p>
   <div class="card">
-    <div class="container-sm text-center">
+    <div class="container-sm text-center">x
       <div class="row">
         <div class="col">
-          Column
+          Test Column
         </div>
         <div class="col">
-          Column
+          Test Column
         </div>
         <div class="col">
-          Column
+          Test Column
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="container-sm">100% wide until small breakpoint</div>
-  <div class="container-md">100% wide until medium breakpoint</div>
-  <div class="container-lg">100% wide until large breakpoint</div>
-  <div class="container-xl">100% wide until extra large breakpoint</div>
-  <div class="container-xxl">100% wide until extra extra large breakpoint</div>
+  </div>.
 
 </main>
 
@@ -221,7 +215,6 @@
 
 <div class="container mt-5">
   <h2>Feedback Form</h2>
-  <!-- Feedback Form -->
   <form id="feedbackForm">
     <div class="form-group">
       <label for="feedback">Feedback</label>
@@ -232,8 +225,30 @@
       <textarea class="form-control" id="comments" rows="4" placeholder="Enter your comments"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" id="resetBtn" class="btn btn-secondary ml-2">Reset Form</button>
   </form>
 </div>
+
+<script>
+  // Feedback form validation
+  document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const feedback = document.getElementById('feedback').value.trim();
+    const comments = document.getElementById('comments').value.trim();
+
+    if (!feedback || !comments) {
+      alert('Please provide both feedback and comments.');
+    } else {
+      $('#feedbackModal').modal('show');
+    }
+  });
+
+  // Reset form button functionality
+  document.getElementById('resetBtn').addEventListener('click', function() {
+    document.querySelectorAll('input, textarea').forEach(input => input.value = '');
+  });
+</script>
 
 <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -296,33 +311,6 @@
     <p>Designed by Makhambet</p>
   </div>
 </footer>
-<script>
-  $(document).ready(function() {
-    $('.carousel').carousel();
-  });
-  document.querySelector('form').addEventListener('submit', function(e) {
-    const feedback = document.getElementById('feedback').value;
-    const comments = document.getElementById('comments').value;
-
-    if (!feedback || !comments) {
-      e.preventDefault();
-      alert('Please provide feedback and comments.');
-    }
-  });
-
-  document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const feedback = document.getElementById('feedback').value.trim();
-    const comments = document.getElementById('comments').value.trim();
-
-    if (!feedback || !comments) {
-      alert('Please provide both feedback and comments.');
-    } else {
-      $('#feedbackModal').modal('show');
-    }
-  });
-</script>
 
 </body>
 </html>
