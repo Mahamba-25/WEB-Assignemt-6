@@ -48,14 +48,76 @@
       });
     </script>
 
-    <style>
-      .dark-mode {
-        background-color: #333;
-        color: #fff;
-      }
-    </style>
+    <button id="changeStyleButton">Change Heading Style</button>
+    <h1 id="myHeading">Welcome to My Web App!</h1>
 
-    
+    <script>
+      document.getElementById("changeStyleButton").addEventListener("click", function() {
+        const heading = document.getElementById("myHeading");
+        heading.style.color = "red";
+        heading.style.fontSize = "36px";
+        heading.style.fontFamily = "Arial, sans-serif";
+      });
+    </script>
+
+    <button id="changeStyleButton">Change Heading Style</button>
+    <h1 id="myHeading">Welcome to My Web App!</h1>
+
+    <script>
+      document.getElementById("changeStyleButton").addEventListener("click", function() {
+        const heading = document.getElementById("myHeading");
+        heading.style.color = "red";
+        heading.style.fontSize = "36px";
+        heading.style.fontFamily = "Arial, sans-serif";
+      });
+    </script>
+
+
+    <script>
+      function changeHeadingText(newText, callback) {
+        const heading = document.getElementById("myHeading");
+        heading.textContent = newText;
+
+        if (callback) {
+          callback(heading);
+        }
+      }
+
+      function changeHeadingStyle(heading) {
+        heading.style.color = "blue";
+        heading.style.fontSize = "48px";
+      }
+
+      document.getElementById("changeStyleButton").addEventListener("click", function() {
+        changeHeadingText("You Clicked the Button!", changeHeadingStyle);
+      });
+    </script>
+
+
+    <script>
+      let clickCount = 0;
+
+      document.getElementById("changeStyleButton").addEventListener("click", function() {
+        clickCount++;
+        const heading = document.getElementById("myHeading");
+
+        switch(clickCount) {
+          case 1:
+            heading.style.color = "purple";
+            break;
+          case 2:
+            heading.style.fontSize = "60px";
+            break;
+          case 3:
+            heading.textContent = "Style Changed!";
+            break;
+          default:
+            heading.style = ""; // Resets styles
+            heading.textContent = "Welcome to My Web App!";
+            clickCount = 0;
+        }
+      });
+    </script>
 
     <!--button that shows current time-->
     <button id="showTimeBtn" class="btn btn-secondary my-2">Show Current Time</button>
