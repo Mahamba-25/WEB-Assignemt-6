@@ -1,4 +1,9 @@
 /* Reset default styles */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
 body, h1, h2, p, ul, form {
     margin: 0;
     padding: 0;

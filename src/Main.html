@@ -10,150 +10,47 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-  <header class="bg-primary text-white text-center py-4">
-    <h1>Welcome to MaxMah Studios</h1>
-    <blockquote class="blockquote">
-      <p>"We create, we learn, we try"</p>
-      <footer class="blockquote-footer">
-        <small>Makhambet</small>
-      </footer>
-    </blockquote>
+<header class="bg-primary text-white text-center py-4">
+  <h1>Welcome to MaxMah Studios</h1>
+  <blockquote class="blockquote">
+    <p>"We create, we learn, we try"</p>
+    <footer class="blockquote-footer">
+      <small>Makhambet</small>
+    </footer>
+  </blockquote>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">MaxMah Studios</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="https://mahamba.itch.io/">Itch.io</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#games">Games</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#team">Team</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">MaxMah Studios</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="https://mahamba.itch.io/">Itch.io</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#games">Games</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#team">Team</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    <button id="toggleTheme">Toggle Day/Night Mode</button>
-
-    <script>
-      document.getElementById('toggleTheme').addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
-      });
-    </script>
-
-    <button id="changeStyleButton">Change Heading Style</button>
-    <h1 id="myHeading">Welcome to My Web App!</h1>
-
-    <script>
-      document.getElementById("changeStyleButton").addEventListener("click", function() {
-        const heading = document.getElementById("myHeading");
-        heading.style.color = "red";
-        heading.style.fontSize = "36px";
-        heading.style.fontFamily = "Arial, sans-serif";
-      });
-    </script>
-
-    <button id="changeStyleButton">Change Heading Style</button>
-    <h1 id="myHeading">Welcome to My Web App!</h1>
-
-    <script>
-      document.getElementById("changeStyleButton").addEventListener("click", function() {
-        const heading = document.getElementById("myHeading");
-        heading.style.color = "red";
-        heading.style.fontSize = "36px";
-        heading.style.fontFamily = "Arial, sans-serif";
-      });
-    </script>
+  <button id="toggleTheme">Toggle Day/Night Mode</button>
 
 
-    <script>
-      function changeHeadingText(newText, callback) {
-        const heading = document.getElementById("myHeading");
-        heading.textContent = newText;
 
-        if (callback) {
-          callback(heading);
-        }
-      }
+  <!--button that shows current time-->
+  <button id="showTimeBtn" class="btn btn-secondary my-2">Show Current Time</button>
 
-      function changeHeadingStyle(heading) {
-        heading.style.color = "blue";
-        heading.style.fontSize = "48px";
-      }
+  <button onclick="changeBackgroundColor()">Change Background Color</button>
 
-      document.getElementById("changeStyleButton").addEventListener("click", function() {
-        changeHeadingText("You Clicked the Button!", changeHeadingStyle);
-      });
-    </script>
-
-
-    <script>
-      let clickCount = 0;
-
-      document.getElementById("changeStyleButton").addEventListener("click", function() {
-        clickCount++;
-        const heading = document.getElementById("myHeading");
-
-        switch(clickCount) {
-          case 1:
-            heading.style.color = "purple";
-            break;
-          case 2:
-            heading.style.fontSize = "60px";
-            break;
-          case 3:
-            heading.textContent = "Style Changed!";
-            break;
-          default:
-            heading.style = ""; // Resets styles
-            heading.textContent = "Welcome to My Web App!";
-            clickCount = 0;
-        }
-      });
-    </script>
-
-    <!--button that shows current time-->
-    <button id="showTimeBtn" class="btn btn-secondary my-2">Show Current Time</button>
-
-    <!--button that changes background color-->
-    <button onclick="changeBackgroundColor()">Change Background Color</button>
-
-    <script>
-      document.getElementById('showTimeBtn').addEventListener('click', function() {
-        document.getElementById('currentDateTime').innerHTML = new Date().toLocaleString();
-      });
-
-      function changeBackgroundColor() {
-        document.body.style.backgroundColor = document.body.style.backgroundColor === 'lightblue' ? 'white' : 'lightblue';
-      }
-
-      const navMenu = document.getElementById('navMenu');
-      const menuItems = navMenu.querySelectorAll('.nav-item');
-
-      navMenu.addEventListener('keydown', function(event) {
-        const focusedElement = document.activeElement;
-        const currentIndex = Array.from(menuItems).indexOf(focusedElement);
-
-        if (event.key === 'ArrowRight' || event.key === 'ArrowDown')
-        {
-          let nextIndex = (currentIndex + 1) % menuItems.length;
-          menuItems[nextIndex].focus();
-        }
-        else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp')
-        {
-          let prevIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
-          menuItems[prevIndex].focus();
-        }
-      });
-    </script>
-  </header>
+</header>
 
 <main class="container-lg my-4">
   <section class="intro text-center">
@@ -354,10 +251,7 @@
   <h4 id="greeting"></h4>
 
   <script>
-    document.getElementById('greetUserBtn').addEventListener('click', function() {
-      const name = document.getElementById('userName').value;
-      document.getElementById('greeting').textContent = 'Hello, ' + name + '!';
-    });
+
   </script>
 
   <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
@@ -422,6 +316,6 @@
     <p>Designed by Makhambet</p>
   </div>
 </footer>
-
+<script src="Main.js"></script>
 </body>
 </html>
