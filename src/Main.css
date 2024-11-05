@@ -79,3 +79,11 @@ footer {
     color: white;
     padding: 20px;
 }
+
+.item {
+    display: none;
+}
+
+.item.visible {
+    display: block;
+}

@@ -65,77 +65,79 @@
   <button id="showTimeBtn" class="btn btn-secondary my-2">Show Current Time</button>
   <p id="currentDateTime"></p>
 
-  <select id="categoryFilter">
-    <option value="all">All</option>
-    <option value="games">Games</option>
-    <option value="team">Team</option>
-  </select>
-
-  <input type="checkbox" id="availableOnlyFilter"> Available Only
-  <button id="applyFilters">Apply Filters</button>
 </header>
 
 <main class="container-lg my-4">
-  <section class="intro text-center">
-    <h3>Games and Release Dates</h3>
-  </section>
 
-  <section id="games" class="row">
-    <div class="col-lg-6">
-      <h3>Bugs of Life - November 2023</h3>
-      <figure>
-        <img src="https://img.itch.zone/aW1nLzE0MTA4Njc2LnBuZw==/original/QoGsrL.png" alt="In-game picture" class="img-fluid">
-        <figcaption>In-game picture</figcaption>
-      </figure>
-    </div>
-    <div class="col-lg-6">
-      <h3>Romance Rows - February 2024</h3>
-      <figure>
-        <img src="https://img.itch.zone/aW1nLzE1MDMwNzYwLnBuZw==/original/n6hI6M.png" alt="In-game picture" class="img-fluid">
-        <figcaption>In-game picture</figcaption>
-      </figure>
-    </div>
-    <div class="col-lg-4">
-      <h3>Christmas Deer - December 2023</h3>
-      <figure>
-        <img src="https://img.itch.zone/aW1nLzE0NTUxNzE4LnBuZw==/original/OuI%2B1A.png" alt="In-game picture" class="img-fluid">
-        <figcaption>In-game picture</figcaption>
-      </figure>
-    </div>
-    <div class="col-lg-4">
-      <h3>Undergraduate Monsters - June 2024?</h3>
-      <figure>
-        <img src="https://img.itch.zone/aW1nLzE1Nzc4MTQ4LnBuZw==/original/AQLCAQ.png" alt="In-game picture" class="img-fluid">
-        <figcaption>In-game picture</figcaption>
-      </figure>
-    </div>
-    <div class="col-lg-4">
-      <h3>Iustitia - September 2023</h3>
-      <figure>
-        <a class="nav-link" href="2nd.html"><img src="https://img.itch.zone/aW1hZ2UvMjI3OTUzOC8xMzUwODI5My5wbmc=/original/igSADJ.png" alt="In-game picture" class="img-fluid">
+  <div class="results">
+    <select id="categoryFilter">
+      <option value="all">All</option>
+      <option value="games">Games</option>
+      <option value="team">Team</option>
+    </select>
+    <input type="checkbox" id="availableOnlyFilter"> Available Only
+    <button id="applyFilters">Apply Filters</button>
+    <section class="intro text-center">
+      <h3>Games and Release Dates</h3>
+    </section>
+
+    <div class="item category1">
+      <div class="col-lg-6">
+        <h3>Bugs of Life - November 2023</h3>
+        <figure>
+          <img src="https://img.itch.zone/aW1nLzE0MTA4Njc2LnBuZw==/original/QoGsrL.png" alt="In-game picture" class="img-fluid">
           <figcaption>In-game picture</figcaption>
-        </a>
-      </figure>
+        </figure>
+      </div>
+      <div class="col-lg-6">
+        <h3>Romance Rows - February 2024</h3>
+        <figure>
+          <img src="https://img.itch.zone/aW1nLzE1MDMwNzYwLnBuZw==/original/n6hI6M.png" alt="In-game picture" class="img-fluid">
+          <figcaption>In-game picture</figcaption>
+        </figure>
+      </div>
+      <div class="col-lg-4">
+        <h3>Christmas Deer - December 2023</h3>
+        <figure>
+          <img src="https://img.itch.zone/aW1nLzE0NTUxNzE4LnBuZw==/original/OuI%2B1A.png" alt="In-game picture" class="img-fluid">
+          <figcaption>In-game picture</figcaption>
+        </figure>
+      </div>
+      <div class="col-lg-4">
+        <h3>Undergraduate Monsters - June 2024?</h3>
+        <figure>
+          <img src="https://img.itch.zone/aW1nLzE1Nzc4MTQ4LnBuZw==/original/AQLCAQ.png" alt="In-game picture" class="img-fluid">
+          <figcaption>In-game picture</figcaption>
+        </figure>
+      </div>
+      <div class="col-lg-4">
+        <h3>Iustitia - September 2023</h3>
+        <figure>
+          <a class="nav-link" href="2nd.html"><img src="https://img.itch.zone/aW1hZ2UvMjI3OTUzOC8xMzUwODI5My5wbmc=/original/igSADJ.png" alt="In-game picture" class="img-fluid">
+            <figcaption>In-game picture</figcaption>
+          </a>
+        </figure>
+      </div>
     </div>
-  </section>
 
-  <section id="team" class="my-4">
-    <h2>Our Team</h2>
-    <ol>
-      <li>Maxim Kolodyn</li>
-      <li>Makhambet Saparbek</li>
-      <li>Bekzat Sapargali</li>
-      <li>Arsen</li>
-    </ol>
-    <h2>Former Members</h2>
-    <ul>
-      <li>Anel</li>
-      <li>Alsalim</li>
-      <li>Gaukhar</li>
-      <li>Nurbol</li>
-      <li>Yersayin</li>
-    </ul>
-  </section>
+    <div class="item category2">
+      <h2>Our Team</h2>
+      <ol>
+        <li>Maxim Kolodyn</li>
+        <li>Makhambet Saparbek</li>
+        <li>Bekzat Sapargali</li>
+        <li>Arsen</li>
+      </ol>
+      <h2>Former Members</h2>
+      <ul>
+        <li>Anel</li>
+        <li>Alsalim</li>
+        <li>Gaukhar</li>
+        <li>Nurbol</li>
+        <li>Yersayin</li>
+      </ul>
+    </div>
+  </div>
 
   <section class="info my-4">
     <dl>

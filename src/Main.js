@@ -57,11 +57,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Load filter settings and apply event listeners
     loadFilterSettings();
 
-    document.getElementById("applyFilters").addEventListener("click", function () {
-        applyFilters();
-        saveFilterSettings();
-    });
-
     // Menu keyboard navigation
     const navMenu = document.getElementById('navMenu');
     const menuItems = navMenu ? navMenu.querySelectorAll('.nav-item') : [];
@@ -133,11 +128,32 @@ function saveFilterSettings() {
     localStorage.setItem("availableOnlyFilter", availableOnly.toString());
 }
 
-// Apply filters to content based on selected criteria
+// Apply filters on selected criteria
 function applyFilters() {
     const category = document.getElementById("categoryFilter").value;
     const availableOnly = document.getElementById("availableOnlyFilter").checked;
 
-    // Placeholder for actual filtering logic
+    // Placeholder for filtering logic
     console.log("Applying Filters:", { category, availableOnly });
 }
+
+// Function to apply filter based on the selected category
+function applyFilter(category) {
+    items.forEach(item => {
+        // Check if item matches the selected category
+        if (category === 'all' || item.classList.contains(category)) {
+            item.classList.add('visible');
+        } else {
+            item.classList.remove('visible');
+        }
+    });
+}
+
+// Event listener for filter change
+filterSelect.addEventListener('change', (event) => {
+    const selectedCategory = event.target.value;
+    applyFilter(selectedCategory);
+
+    // Save the selected filter in localStorage
+    localStorage.setItem('selectedFilter', selectedCategory);
+});
