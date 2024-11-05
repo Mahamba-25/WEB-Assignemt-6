@@ -26,7 +26,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navMenu">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="https://mahamba.itch.io/">Itch.io</a>
@@ -37,19 +37,42 @@
         <li class="nav-item">
           <a class="nav-link" href="#team">Team</a>
         </li>
+        <!--<li class="popup" onclick="myFunction()">Login
+          <span class="popuptext" id="myPopup">Popup text...</span>
+        </li>-->
       </ul>
     </div>
   </nav>
 
+  <h1>Login Page</h1>
+  <div id="auth-section">
+    <!-- Login form -->
+    <div id="login-form">
+      <label for="uname">Username:</label>
+      <input type="text" id="uname" placeholder="Enter your username">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Logout button -->
+    <div id="logout-section" style="display:none;">
+      <p>Welcome, <span id="user-name"></span>!</p>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
   <button id="toggleTheme">Toggle Day/Night Mode</button>
 
-
-
-  <!--button that shows current time-->
   <button id="showTimeBtn" class="btn btn-secondary my-2">Show Current Time</button>
+  <p id="currentDateTime"></p>
 
-  <button onclick="changeBackgroundColor()">Change Background Color</button>
+  <select id="categoryFilter">
+    <option value="all">All</option>
+    <option value="games">Games</option>
+    <option value="team">Team</option>
+  </select>
 
+  <input type="checkbox" id="availableOnlyFilter"> Available Only
+  <button id="applyFilters">Apply Filters</button>
 </header>
 
 <main class="container-lg my-4">
@@ -123,23 +146,6 @@
     </dl>
   </section>
 
-  <p>Test</p>
-  <div class="card">
-    <div class="container-sm text-center">x
-      <div class="row">
-        <div class="col">
-          Test Column
-        </div>
-        <div class="col">
-          Test Column
-        </div>
-        <div class="col">
-          Test Column
-        </div>
-      </div>
-    </div>
-  </div>.
-
   <section class="carousel-container container-lg my-5">
     <div id="gameCarousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -203,7 +209,6 @@
 
   <div class="container mt-5">
     <h2>Contact Us</h2>
-    <!-- Contact Form -->
     <form id="contactForm">
       <div class="form-group">
         <label for="name">Name</label>
@@ -220,39 +225,17 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
-    <!-- Success Message -->
     <div id="successMessage" class="alert alert-success mt-3" style="display: none;">
       Your message has been sent successfully!
     </div>
   </div>
 
-  <script>
-    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const feedback = document.getElementById('feedback').value.trim();
-      const comments = document.getElementById('comments').value.trim();
-
-      if (!feedback || !comments) {
-        alert('Please provide both feedback and comments.');
-      } else {
-        $('#feedbackModal').modal('show');
-      }
-    });
-
-    document.getElementById('resetBtn').addEventListener('click', function() {
-      document.querySelectorAll('input, textarea').forEach(input => input.value = '');
-    });
-  </script>
-
   <label for="userName">Enter your name:</label>
   <input type="text" id="userName" placeholder="Name">
-  <button id="greetUserBtn">Greet</button>
+  <button id="greetUserBtn" type="submit">Greet</button>
   <h4 id="greeting"></h4>
 
-  <script>
-
-  </script>
+  <br>
 
   <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
