@@ -129,13 +129,13 @@ function saveFilterSettings() {
 }
 
 // Apply filters on selected criteria
-function applyFilters() {
-    const category = document.getElementById("categoryFilter").value;
-    const availableOnly = document.getElementById("availableOnlyFilter").checked;
-
-    // Placeholder for filtering logic
-    console.log("Applying Filters:", { category, availableOnly });
-}
+// function applyFilters() {
+//     const category = document.getElementById("categoryFilter").value;
+//     const availableOnly = document.getElementById("availableOnlyFilter").checked;
+//
+//     // Placeholder for filtering logic
+//     console.log("Applying Filters:", { category, availableOnly });
+// }
 
 // Function to apply filter based on the selected category
 function applyFilter(category) {
